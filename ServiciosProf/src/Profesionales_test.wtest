@@ -1,0 +1,24 @@
+import example.*
+import provincias.*
+import empresas.*
+
+test "empresa conjunto universitario" {
+	const uc = new Universidad (
+		provincia = corrientes,
+		honorarios_recomendados = 5000
+		)
+	const pedro = new Profesional(
+		tipoDeProf = new Profesional_litoral(),
+		universidad = uc
+		)
+	const mario = new Profesional(
+		tipoDeProf = new Profesional_litoral(),
+		universidad = uc
+		)
+	const unsamtech = new Empresa (
+		lista_empleados = [pedro, mario],
+		honorarios_referencia = 5000		
+	)
+	assert.equals( #{corrientes}, unsamtech.universidades_formadoras())
+	
+}
